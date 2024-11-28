@@ -97,7 +97,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`).then((
       fetch(`https://restcountries.com/v3.1/alpha/${country.borders[i]}`).then((res) => {
         res.json().then(([borderCountry]) => {
           const borLists = document.createElement('a')
-          borLists.href = `/index2.html?name=${borderCountry.name.common}`
+          borLists.href = `https://vivek-chauhan98.github.io/REST-API-Page-2?name=${borderCountry.name.common}`
           borLists.textContent = `${borderCountry.name.common}`
           allBorders.append(borLists)
         })
