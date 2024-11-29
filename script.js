@@ -31,19 +31,33 @@ backButton.addEventListener('click', () => {
 
 
 sun.classList.add('hide')
-darkMode.addEventListener('click', () => {    
-    body.classList.toggle('dark')
-    sun.classList.toggle('hide')
-    moon.classList.toggle('hide')
-    if(moon.className.includes('hide')) {
-        modeText.textContent = `Light Mode`
-    }else{
-        modeText.textContent = `Dark Mode`
-    }
-    
+darkMode.addEventListener('click', () => {
+
+  if (localStorage.myData == 'true') {
+    localStorage.myData = 'false'
+  }
+  else {
+    localStorage.myData = 'true'
+  }
+
+  body.classList.toggle('dark')
+  sun.classList.toggle('hide')
+  moon.classList.toggle('hide')
+
+  if (moon.className.includes('hide')) {
+    modeText.textContent = `Light Mode`
+  } else {
+    modeText.textContent = `Dark Mode`
+  }
 })
 
-console.log(countryName);
+if (localStorage.myData == 'true') {
+  body.classList.add('dark')
+  sun.classList.remove('hide')
+  moon.classList.add('hide')
+  modeText.textContent = `Light Mode`
+}
+
 
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`).then((res) => {
   res.json().then(([country]) => {
@@ -107,4 +121,3 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`).then((
 
   })
 })
-
