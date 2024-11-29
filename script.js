@@ -26,16 +26,14 @@ const moon = document.querySelector('.moon')
 const modeText = document.querySelector('.mode-text')
 
 backButton.addEventListener('click', () => {
-    if (localStorage.myData == 'true') {
+  if (localStorage.myData == 'true') {
     body.classList.add('dark')
     sun.classList.remove('hide')
     moon.classList.add('hide')
     modeText.textContent = `Light Mode`
   }
   window.history.back()
-  window.history.back()
 })
-
 
 sun.classList.add('hide')
 darkMode.addEventListener('click', () => {
